@@ -1,8 +1,43 @@
 body {
+  margin: 0;
   padding: 50px;
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #ff4800;
 }
 
-a {
-  color: #00B7FF;
+h1 {
+  margin: auto;
+  text-align: center;
+  text-shadow: 1px 1px 2px grey
+}
+
+p {
+  font-size: 12px;
+  color: grey;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+form {
+  width: 150px;
+  font-size: 14px;
+  color: grey;
+  margin: auto;
+  padding: 0px;
+}
+
+fieldset {
+  border-width: 0px;
+}
+
+div {
+  font-size: 10px;
+  color: grey;
+  margin-left: 44.6%;
+  padding: 0px;
+}
+
+input {
+  font-size: 12px;
 }

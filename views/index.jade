@@ -1,5 +1,13 @@
 extends layout
-
 block content
+  link(rel='stylesheet', href='/stylesheets/style.css')
   h1= title
-  p Welcome to #{title}
+  div May the force be with you
+  form(action='/admin',method='post')
+    fieldset
+        p
+          input(id='login',type='text',value='',placeholder='login',name='login')
+        p
+          input(id='password',type='password',value='',placeholder='password',name='password')
+        p
+          input(type='submit',value='Sign Up',data-transition='fade', data-theme='c')
