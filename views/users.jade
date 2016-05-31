@@ -20,6 +20,9 @@ block content
             br
             strong Location:
             |  <span id='userInfoLocation'></span>
+          div#btn_div
+            button#btnAddUser Add User
+            button#btnEditUser Edit User
       // /USER INFO
       // USER LIST
       h2 User List
@@ -29,21 +32,22 @@ block content
                   th UserName
                   th Email
                   th Delete?
-              tbody
       // /USER LIST
       // ADD USER
       h2 Add User
       #addUser
         fieldset
           input#inputUserName(type='text', placeholder='Username')
+          br
           input#inputUserEmail(type='text', placeholder='Email')
           br
           input#inputUserFullname(type='text', placeholder='Full Name')
+          br
           input#inputUserAge(type='text', placeholder='Age')
           br
           input#inputUserLocation(type='text', placeholder='Location')
+          br
           input#inputUserGender(type='text', placeholder='gender')
           br
-          button#btnAddUser Add User
       // /ADD USER
     // /WRAPPER
