@@ -65,18 +65,38 @@ mongoose.connect(uristring, function (err, res) {
     console.log('Succeeded connected to: ' + uristring)
   }
 })
+
+// get the user player
+User.find({ username: 'player' }, function (err, user) {
+  if (err) throw err
+
+  // delete him
+  User.remove(function (err) {
+    if (err) throw err
+    console.log('User successfully deleted!')
+  })
+})
+
 // create a new user called player
 var player = new User({
   name: 'anon',
   username: 'player',
-  password: 'qwerty'
+  password: 'qwerty',
+  email: 'example@mail.org'
 })
 
 // call the built-in save method to save to the database
 player.save(function (err) {
   if (err) throw err
-
   console.log('User saved successfully!')
 })
 
+// get all the users
+User.find({}, function (err, users) {
+  if (err) throw err
+  // object of all the users
+  console.log(users)
+})
+
+// it works=)
 module.exports = app
