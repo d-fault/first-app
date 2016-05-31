@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 var admin = require('./routes/admin')
 var app = express()
+var mongoose = require('mongoose')
+var User = require('./models/userschema')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -48,6 +50,33 @@ app.use(function (err, req, res, next) {
     message: err.message,
     error: {}
   })
+})
+
+// Here we find an appropriate database to connect to, defaulting to
+// localhost if we don't find one.
+var uristring =
+process.env.MONGOLAB_URI ||
+process.env.MONGOHQ_URL ||
+'mongodb://localhost/myappdatabase'
+mongoose.connect(uristring, function (err, res) {
+  if (err) {
+    console.log('ERROR connecting to: ' + uristring + '. ' + err)
+  } else {
+    console.log('Succeeded connected to: ' + uristring)
+  }
+})
+// create a new user called player
+var player = new User({
+  name: 'anon',
+  username: 'player',
+  password: 'qwerty'
+})
+
+// call the built-in save method to save to the database
+player.save(function (err) {
+  if (err) throw err
+
+  console.log('User saved successfully!')
 })
 
 module.exports = app
