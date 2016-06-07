@@ -1,6 +1,6 @@
-var express = require('express')
-var router = express.Router()
-var User = require('../models/userschema')
+let express = require('express')
+let router = express.Router()
+let User = require('../models/userschema')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -11,12 +11,11 @@ router.get('/', function (req, res, next) {
 router.post('/users', function (req, res, next) {
   res.render('users', {title: 'USER ACCOUNTS'})
 })
-
+// JSON output in some page
 router.get('/users/test', function (req, res, next) {
   User.find({}, function (err, users) {
     if (err) throw err
     // object of all the users
-    // console.log(users)
     res.json(users)
   })
 })

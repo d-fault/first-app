@@ -57,12 +57,11 @@ mongoose.connect(mybase, function (err, res) {
     console.log('connected to: ' + mybase)
   }
 })
-
 /*
 // get the user player
 User.find({ username: 'player' }, function (err, user) {
   if (err) throw err
-  // delete him
+  // devare him
   User.remove(function (err) {
     if (err) throw err
     console.log('User successfully deleted!')
@@ -74,7 +73,9 @@ var player = new User({
   name: 'anon',
   username: 'player',
   password: 'qwerty',
-  email: 'example@mail.org'
+  email: 'example@mail.org',
+  age: '29',
+  location: 'Helsinki'
 })
 
 // call the built-in save method to save to the database
@@ -83,5 +84,4 @@ player.save(function (err) {
   console.log('User saved successfully!')
 })
 */
-
 module.exports = app

@@ -16,28 +16,15 @@ block content
             strong Age:
             |  <span id='userInfoAge'></span>
             br
-            strong Gender:
-            |  <span id='userInfoGender'></span>
-            br
             strong Location:
             |  <span id='userInfoLocation'></span>
           div#btn_div
             button#btnAddUser Add User
             button#btnEditUser Edit User
-            button#btnShow TESTING
       // /USER INFO
-      // USER LIST
-      h2 User List
-      #userList
-          table
-              thead
-                  th UserName
-                  th Email
-                  th Delete?
-      // /USER LIST
       // ADD USER
-      h2 Add User
       #addUser
+        h2 Add User
         fieldset
           input#inputUserName(type='text', placeholder='Username')
           br
@@ -49,7 +36,15 @@ block content
           br
           input#inputUserLocation(type='text', placeholder='Location')
           br
-          input#inputUserGender(type='text', placeholder='gender')
-          br
       // /ADD USER
-    // /WRAPPER
+      // USER LIST
+      h2 User List
+      #userList
+        table
+          thead
+            th UserName
+            th Email
+            th Remove
+          tbody
+      //USER LIST
+    //WRAPPER
