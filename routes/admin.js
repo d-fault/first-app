@@ -20,4 +20,13 @@ router.get('/users/test', function (req, res, next) {
   })
 })
 
+router.post('/users/adduser', function (req, res, next) {
+  User.insert({}, function (err, users) {
+    if (err) throw err
+    res.send(
+      (err === null) ? { msg: '' } : { msg: err }
+    )
+  })
+})
+
 module.exports = router

@@ -61,7 +61,7 @@ mongoose.connect(mybase, function (err, res) {
 // get the user player
 User.find({ username: 'player' }, function (err, user) {
   if (err) throw err
-  // devare him
+  // delete him
   User.remove(function (err) {
     if (err) throw err
     console.log('User successfully deleted!')

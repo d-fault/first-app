@@ -18,25 +18,43 @@ block content
             br
             strong Location:
             |  <span id='userInfoLocation'></span>
+            br
+            strong <span id='userInfoEditLink'></span>
+            br
           div#btn_div
-            button#btnAddUser Add User
-            button#btnEditUser Edit User
       // /USER INFO
       // ADD USER
-      #addUser
-        h2 Add User
-        fieldset
-          input#inputUserName(type='text', placeholder='Username')
-          br
-          input#inputUserEmail(type='text', placeholder='Email')
-          br
-          input#inputUserFullname(type='text', placeholder='Full Name')
-          br
-          input#inputUserAge(type='text', placeholder='Age')
-          br
-          input#inputUserLocation(type='text', placeholder='Location')
-          br
+      #addUserView
+          h2 Add User
+          fieldset
+            input#inputUserName(type='text', placeholder='Username')
+            br
+            input#inputUserEmail(type='text', placeholder='Email')
+            br
+            input#inputUserFullname(type='text', placeholder='Full Name')
+            br
+            input#inputUserAge(type='text', placeholder='Age')
+            br
+            input#inputUserLocation(type='text', placeholder='Location')
+            br
+            button#btnAddUser Add User
       // /ADD USER
+      // UPDATE USER Info
+      #editUserView
+          h2 Edit User
+          fieldset
+            input#updateUserName(type='text', placeholder='Username')
+            br
+            input#updateUserEmail(type='text', placeholder='Email')
+            br
+            input#updateUserFullname(type='text', placeholder='Full Name')
+            br
+            input#updateUserAge(type='text', placeholder='Age')
+            br
+            input#updateUserLocation(type='text', placeholder='Location')
+            br
+            button#btnUpdateInfo Update
+            button#btnCancelUpdateInfo Cancel
       // USER LIST
       h2 User List
       #userList

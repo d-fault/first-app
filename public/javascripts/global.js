@@ -5,8 +5,12 @@ let userListData = []
 $(document).ready(function () {
     // Populate the user table on initial page load
   populateTable()
-    // Username link click
   $('#userList table tbody').on('click', 'td a.linkshowuser', showUserInfo)
+  // $('#userList table tbody').on('click', 'td a.linkdeleteuser', deleteUser)
+  $('#userInfo p').on('click', 'a.linkedituser', addToEditView) // add user info in edit view
+  // $('#btnAddUser').on('click', addUser)
+  $('#btnUpdateInfo').on('click', updateInfo)
+  $('#btnCancelUpdateInfo').on('click', toggleAddEditView)
 })
 // Functions =============================================================
 
@@ -38,13 +42,33 @@ function showUserInfo (event) {
   let thisUserName = $(this).attr('rel')
     // Get Index of object based on id value
   let arrayPosition = userListData.map(function (arrayItem) { return arrayItem.username }).indexOf(thisUserName)
-  console.log(arrayPosition)
     // Get our User Object
   let thisUserObject = userListData[arrayPosition]
-  console.log(thisUserObject)
     // Populate Info Box
   $('#userInfoName').text(thisUserObject.name)
   $('#userInfoAge').text(thisUserObject.age)
-  $('#userInfoGender').text(thisUserObject.gender)
   $('#userInfoLocation').text(thisUserObject.location)
+  $('#userInfoEditLink').append('<a href="#" class="linkedituser" rel="' + thisUserObject._id + '">edit</a>')
+  // each time pushing "linkshowuser", "userEditInfoLink" append the info.. need to fix
+}
+
+function toggleAddEditView () {
+  $('#addUserView').toggle()
+  $('#editUserView').toggle()
+}
+
+function addToEditView (event) {
+  event.preventDefault()
+  if ($('#addUserView').is(':visible')) {
+    toggleAddEditView()
+  }
+  let _id = $(this).attr('rel')
+  let arrayPosition = userListData.map(function (arrayItem) { return arrayItem._id }).indexOf(_id)
+  let thisUserObject = userListData[arrayPosition]
+  $('#updateUserFullname').val(thisUserObject.name)
+  $('#updateUserAge').val(thisUserObject.age)
+  $('#updateUserLocation').val(thisUserObject.location)
+  $('#updateUserName').val(thisUserObject.username)
+  $('#updateUserEmail').val(thisUserObject.email)
+  $('#editUserView').attr('rel', thisUserObject._id)
 }

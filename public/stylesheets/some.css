@@ -52,15 +52,21 @@ a {
   		background:rgba(80,120,255,0.05);
   	}
 
-      #btn_div button {
-        margin: 0 25px 0 25px;
-      }
-  #addUser {
+  #addUserView {
     position: absolute;
     width: 250px;
     left:0; bottom:0; top: 170px;
   }
-    #addUser fieldset {
+    #addUserView fieldset {
     	border:0;
     	padding:0; margin:0;
     }
+  #editUserView {
+    position: absolute;
+    width: 250px;
+    left:0; bottom:0; top: 170px;
+    display:none;
+  }
+    #editUserView fieldset {
+      border:0;
+      padding:0; margin:0;
